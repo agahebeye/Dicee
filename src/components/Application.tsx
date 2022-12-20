@@ -8,7 +8,7 @@ export function Application() {
   const [dice, setDice] = React.useState(() =>
     Array.from({ length: 10 }, () => ({
       key: randomKey(),
-      value: randomValue(),
+      value: randomValue() + 1,
       held: false,
     }))
   );
@@ -19,7 +19,8 @@ export function Application() {
         <Die
           hold={() => holdDie(die.key)}
           key={die.key}
-          value={die.value + 1}
+          held={die.held}
+          value={die.value}
         />
       ))}
     </div>
