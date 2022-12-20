@@ -1,11 +1,15 @@
 import { Die } from "./Die";
 
 export function Application() {
-  return (
-    <div className="App">
-      {[1, 2, 3, 4, 5, 6].map((v) => (
-        <Die key={v} length={v} />
-      ))}
-    </div>
-  );
+  const dice = Array.from({ length: 10 }, (_, key) => ({
+    key,
+    value: Math.floor(Math.random() * 6),
+    held: false,
+  }));
+
+  const diceElements = dice.map((die) => (
+    <Die key={die.key} value={die.value + 1} />
+  ));
+
+  return <div className="App">{diceElements}</div>;
 }
