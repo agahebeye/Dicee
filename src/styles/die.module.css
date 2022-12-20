@@ -11,9 +11,12 @@
   width: 44px;
   height: 44px;
 
-  background-color: #e7e7e7;
-  box-shadow: inset 0 5px white, inset 0 -5px #bbb, inset 5px 0 #d7d7d7,
-    inset -5px 0 #d7d7d7;
+  /* background-color: #e7e7e7; */
+  background-color: crimson;
+  /* box-shadow: inset 0 5px white, inset 0 -5px #bbb, inset 5px 0 #d7d7d7,
+    inset -5px 0 #d7d7d7; */
+  box-shadow: inset 0 5px #db1039, inset 0 -5px #91132c, inset 5px 0 #aa0022,
+    inset -5px 0 #aa0022;
   border-radius: 10%;
 }
 
@@ -24,8 +27,10 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #333;
-  box-shadow: inset 0 3px #111, inset 0 -3px #555;
+  /* background-color: #333;
+  box-shadow: inset 0 3px #111, inset 0 -3px #555; */
+  background-color: #d6d6d6;
+  box-shadow: inset 0 3px #aaaaaa, inset 0 -3px #e0e0e0;
 }
 
 .pip:nth-child(2) {

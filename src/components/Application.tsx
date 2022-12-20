@@ -16,7 +16,11 @@ export function Application() {
   const diceElements = (
     <div className="dice">
       {dice.map((die) => (
-        <Die key={die.key} value={die.value + 1} />
+        <Die
+          hold={() => holdDie(die.key)}
+          key={die.key}
+          value={die.value + 1}
+        />
       ))}
     </div>
   );
@@ -25,7 +29,9 @@ export function Application() {
     <div className="application">
       <div>
         {diceElements}
-        <button onClick={resetDice} className="button-reset">reset</button>
+        <button onClick={resetDice} className="button-reset">
+          reset
+        </button>
       </div>
     </div>
   );
@@ -36,6 +42,19 @@ export function Application() {
         ...die,
         value: randomValue(),
       }));
+    });
+  }
+
+  function holdDie(key: string | number) {
+    setDice((prevDice) => {
+      return prevDice.map((die) => {
+        return die.key === key
+          ? {
+              ...die,
+              held: !die.held,
+            }
+          : die;
+      });
     });
   }
 }
