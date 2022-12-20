@@ -26,7 +26,7 @@ button {
   height: 100vh;
 }
 
-.button-reset {
+.button {
   font-family: var(--defaultfont);
   background-color: var(--primarycolor);
   color: white;
@@ -41,12 +41,31 @@ button {
   cursor: pointer;
 }
 
+.button-inverse {
+  background-color: #e7e7e7;
+  color: #333;
+}
+
+.congratulations {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #444;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roll-info {
+  color: #444;
+  text-align: center;
+}
+
 /*
 Dice
 */
 .dice {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  margin-block: 2rem;
 }
 
 .face {
