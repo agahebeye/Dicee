@@ -11,12 +11,20 @@ export function RollButton(props: RollButtonProps) {
   const text = props.won ? "play new game" : "roll";
 
   return (
-    <button
-      onClick={props.roll}
-      className={className}
-      disabled={props.failed ? true : undefined}
-    >
-      {text}
-    </button>
+    <>
+      <button
+        onClick={props.roll}
+        className={className}
+        disabled={props.failed ? true : undefined}
+      >
+        {text}
+      </button>
+
+      {props.failed && (
+        <button onClick={props.roll} className="button">
+          start over
+        </button>
+      )}
+    </>
   );
 }

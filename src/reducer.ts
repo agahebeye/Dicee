@@ -1,11 +1,5 @@
 import React from "react";
 
-export type Action =
-    | { type: 'failed', payload: boolean }
-    | { type: 'won', payload: boolean }
-    | { type: 'attempts/decrement', payload?: number }
-    | { type: 'dice/roll', payload?: undefined }
-    | { type: 'dice/hold', payload: string }
 
 const initialState = {
     failed: false,
@@ -13,6 +7,15 @@ const initialState = {
     attempts: 3,
     dice: generateDefaultDice()
 }
+
+export type Action =
+    | { type: 'failed', payload: boolean }
+    | { type: 'won', payload: boolean }
+    | { type: 'attempts/decrement', payload?: number }
+    | { type: 'dice/roll', payload?: undefined }
+    | { type: 'dice/hold', payload: string }
+
+export type State = typeof initialState;
 
 export function reducer(state: typeof initialState, action: Action) {
     const { type, payload } = action
@@ -38,12 +41,8 @@ export function reducer(state: typeof initialState, action: Action) {
         }
 
         case "dice/roll":
-            if (state.won) {
-                return {
-                    ...state,
-                    won: false,
-                    dice: generateDefaultDice()
-                }
+            if (state.won || state.failed) {
+                return initialState
             }
 
             return {

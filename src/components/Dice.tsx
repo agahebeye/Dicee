@@ -1,5 +1,5 @@
 import { Die } from "./Die";
-import type {DieType} from './Die'
+import type { DieType } from "./Die";
 
 type DiceProps = {
   elements: DieType[];
