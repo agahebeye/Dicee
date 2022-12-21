@@ -25,7 +25,7 @@ export function Die(props: DiePropsType) {
 }
 
 export type DieType = {
-  key: string | number;
+  key: string;
   value: number;
   held: boolean;
 };

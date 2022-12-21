@@ -3,7 +3,7 @@ import type {DieType} from './Die'
 
 type DiceProps = {
   elements: DieType[];
-  hold: (key: string | number) => void;
+  hold: (key: string) => void;
 };
 
 export function Dice(props: DiceProps) {
@@ -14,7 +14,7 @@ export function Dice(props: DiceProps) {
           hold={() => props.hold(die.key)}
           key={die.key}
           held={die.held}
-          value={die.value + 1}
+          value={die.value}
         />
       ))}
     </div>

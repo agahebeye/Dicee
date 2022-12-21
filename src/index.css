@@ -1,8 +1,7 @@
 :root {
   --primarycolor: rgb(220, 20, 60);
-  --defaultfont: "Roboto", sans-serif;
-  
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+
+  font-family: "Inter", Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -25,10 +24,6 @@
   appearance: none;
 }
 
-body {
-  font-family: var(--defaultfont);
-}
-
 button {
   border: 0;
   background-color: transparent;
@@ -42,7 +37,6 @@ button {
 }
 
 .button {
-  font-family: var(--defaultfont);
   background-color: var(--primarycolor);
   color: white;
   padding: 0.75rem 2rem;
@@ -69,14 +63,21 @@ button {
 .congratulations {
   text-align: center;
   font-size: 2.5rem;
-  color: #444;
   font-weight: 500;
   font-style: italic;
 }
 
 .roll-info {
-  color: #444;
   text-align: center;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  font-size: .925rem;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 /*
