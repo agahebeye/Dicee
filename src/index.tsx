@@ -1,10 +1,15 @@
+import React from "react";
 import ReactDOM from "react-dom/client";
-import { Application } from "~/components/Application";
+import { Application } from "~/Application";
 
-import './index.css'
+import "./index.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-root.render(<Application />);
+root.render(
+  <React.StrictMode>
+    <Application />
+  </React.StrictMode>
+);

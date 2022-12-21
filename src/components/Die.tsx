@@ -23,3 +23,9 @@ export function Die(props: DiePropsType) {
     </div>
   );
 }
+
+export type DieType = {
+  key: string | number;
+  value: number;
+  held: boolean;
+};

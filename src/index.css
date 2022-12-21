@@ -1,5 +1,5 @@
 :root {
-  --primarycolor: crimson;
+  --primarycolor: rgb(220, 20, 60);
   --defaultfont: "Roboto", sans-serif;
 }
 
@@ -39,6 +39,11 @@ button {
   letter-spacing: 0.25rem;
   font-weight: 500;
   cursor: pointer;
+}
+
+.button:disabled {
+  background-color: rgba(220, 20, 60, 0.75);
+  cursor: not-allowed;
 }
 
 .button-inverse {
