@@ -1,11 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* .dice {
+.dice {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  margin-block: 2rem;
 }
 
 .face {
@@ -68,4 +63,4 @@
 
 .pip:nth-child(odd):last-child {
   grid-area: g;
-} */
+}

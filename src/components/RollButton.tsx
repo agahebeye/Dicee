@@ -7,7 +7,7 @@ type RollButtonProps = {
 };
 
 export function RollButton(props: RollButtonProps) {
-  const className = clsx("button", { "button-inverse": props.won });
+  const className = `bg-red-800 text-white tracking-widest uppercase text-xs font-semibold px-10 py-3 rounded-sm table m-auto mt-4`;
   const text = props.won ? "play new game" : "roll";
 
   return (

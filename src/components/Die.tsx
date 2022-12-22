@@ -1,4 +1,5 @@
 import { clsx } from "clsx";
+import classes from "~/styles/die.module.css";
 
 type DiePropsType = {
   value: number;
@@ -7,18 +8,13 @@ type DiePropsType = {
 };
 
 export function Die(props: DiePropsType) {
+  const faceClassName = clsx(classes.face, { "held-face": props.held });
+  const pipClassName = clsx(classes.pip, { "held-pip": props.held });
+
   return (
-    <div
-      className={clsx("face", { "held-face": props.held })}
-      onClick={props.hold}
-    >
+    <div className={faceClassName} onClick={props.hold}>
       {Array.from({ length: props.value }, (_, i) => {
-        return (
-          <div
-            key={i}
-            className={clsx("pip", { "held-pip": props.held })}
-          ></div>
-        );
+        return <div key={i} className={pipClassName}></div>;
       })}
     </div>
   );

@@ -1,4 +1,6 @@
 import React, { useReducer } from "react";
+import Confetti from "react-confetti";
+
 import { useTimer } from "use-timer";
 
 import { Settings } from "./partials/Settings";
@@ -30,11 +32,10 @@ export function Application() {
   }, [state.dice]);
 
   return (
-    <div className="application">
-      <div className="container">
-        {/* <Settings /> */}
-        <Main state={state} timer={timer} dispatch={dispatch} />
-      </div>
+    <div className="h-screen flex justify-center items-center">
+      {/* <Settings /> */}
+      <Main state={state} timer={timer} dispatch={dispatch} />
+      {state.won && <Confetti />}
     </div>
   );
 

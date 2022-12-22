@@ -11,8 +11,8 @@ export function Timer(props: TimerProps) {
     .padStart(2, "0")}`;
 
   return (
-    <div className="timer">
-      <span>{time}</span>
+    <div className="space-x-1 text-xs">
+      <span className="bg-red-400 p-1 text-white">{time}</span>
       <span>&bull;</span>
       <span><strong>{props.attempts}</strong> attemps remaining</span>
     </div>

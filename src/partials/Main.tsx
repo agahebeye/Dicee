@@ -1,8 +1,6 @@
-import { Messagebar } from "~/components/Messagebar";
-import { Timer } from "~/components/Timer";
+import { Appbar } from "~/components/Appbar";
 import { Dice } from "~/components/Dice";
 import { RollButton } from "~/components/RollButton";
-import {SettingsButton} from '~/components/SettingsButton'
 
 import type { Action, State } from "~/reducer";
 import { ReturnValue } from "use-timer/lib/types";
@@ -16,17 +14,15 @@ type MainProps = {
 
 export function Main(props: MainProps) {
   return (
-    <>
-      <SettingsButton />
-      <Messagebar won={props.state.won} />
-      <Timer time={props.timer.time} attempts={props.state.attempts} />
+    <div className="">
+      <Appbar state={props.state} timer={props.timer} />
       <Dice elements={props.state.dice} hold={holdDie} />
       <RollButton
         won={props.state.won}
         roll={rollDice}
         failed={props.state.failed}
       />
-    </>
+    </div>
   );
 
   function rollDice() {
