@@ -3,7 +3,7 @@ import Confetti from "react-confetti";
 
 import { useTimer } from "use-timer";
 
-import { Settings } from "./partials/Settings";
+import { AppSettings } from "./partials/AppSettings";
 import { MainApp } from "./partials/MainApp";
 
 import { useDiceReducer } from "./reducer";
@@ -27,7 +27,17 @@ export function Application() {
 
   return (
     <div className="h-screen flex justify-center items-center">
-      <MainApp timer={timer} />
+      <AppSettings
+        closeSettings={() => setIsSettingsOpen(false)}
+        closed={isSettingsOpen}
+      />
+
+      <MainApp
+        timer={timer}
+        openSettings={() => setIsSettingsOpen(true)}
+        isSettingsOpen={isSettingsOpen}
+      />
+      
       {state.won && <Confetti />}
     </div>
   );

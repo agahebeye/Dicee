@@ -9,6 +9,7 @@ import { ReturnValue } from "use-timer/lib/types";
 type AppbarProps = {
   state: State;
   timer: ReturnValue;
+  openSettings: () => void;
 };
 
 export function Appbar(props: AppbarProps) {
@@ -24,7 +25,7 @@ export function Appbar(props: AppbarProps) {
         </div>
       ) : (
         <div className="flex flex-col items-center text-sm">
-          <SettingsButton />
+          <SettingsButton onClick={props.openSettings} />
           <div
             className={clsx("mt-10 mb-4 max-w-xs", {
               "text-xl italic": props.state.won,

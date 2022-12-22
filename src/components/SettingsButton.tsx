@@ -1,8 +1,11 @@
-export function SettingsButton() {
+type SettingsButtonProps = {
+  onClick: () => void;
+};
+export function SettingsButton(props: SettingsButtonProps) {
   return (
     <button
       className="self-end flex text-xs font-medium items-center space-x-2"
-      onClick={() => console.log("clicked?")}
+      onClick={props.onClick}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
