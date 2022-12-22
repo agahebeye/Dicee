@@ -5,13 +5,12 @@ import { useTimer } from "use-timer";
 
 import { AppSettings } from "./partials/AppSettings";
 import { MainApp } from "./partials/MainApp";
-
-import { useDiceReducer } from "./reducer";
+import { useDice } from "./DiceProver";
 
 export function Application() {
   const duration = 30;
 
-  const [state, dispatch] = useDiceReducer();
+  const { state, dispatch } = useDice();
   const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
 
   const timer = useTimer({
@@ -37,13 +36,13 @@ export function Application() {
         openSettings={() => setIsSettingsOpen(true)}
         isSettingsOpen={isSettingsOpen}
       />
-      
+
       {state.won && <Confetti />}
     </div>
   );
 
   function onTimeOver() {
-    if (state.attempts >= 1) {
+    if (state.attempts > 1) {
       dispatch({ type: "attempts/decrement" });
       timer.reset();
       timer.start();

@@ -21,7 +21,7 @@ export function Appbar(props: AppbarProps) {
     <>
       {props.state.failed ? (
         <div className="text-red-600 text-lg flex items-center justify-center space-x-1">
-          <span>Oops! Faileds</span> <span className="text-3xl">😥</span>
+          <span>Oops!!! Failed</span> <span className="text-3xl">😥</span>
         </div>
       ) : (
         <div className="flex flex-col items-center text-sm">

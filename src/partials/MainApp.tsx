@@ -15,7 +15,7 @@ type MainAppProps = {
 export function MainApp(props: MainAppProps) {
   const { state, dispatch } = useDice();
 
-  if (props.isSettingsOpen) return <></>
+  if (props.isSettingsOpen) return <></>;
 
   return (
     <div className="">
