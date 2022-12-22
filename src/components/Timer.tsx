@@ -12,9 +12,11 @@ export function Timer(props: TimerProps) {
 
   return (
     <div className="space-x-1 text-xs">
-      <span className="bg-red-400 p-1 text-white">{time}</span>
+      <span className="bg-red-400 p-1 text-white font-semibold">{time}</span>
       <span>&bull;</span>
-      <span><strong>{props.attempts}</strong> attemps remaining</span>
+      <span>
+        <strong>{props.attempts}</strong> attemp(s) remaining
+      </span>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { clsx } from "clsx";
+import clsx from "clsx";
 import classes from "~/styles/die.module.css";
 
 type DiePropsType = {
@@ -8,8 +8,8 @@ type DiePropsType = {
 };
 
 export function Die(props: DiePropsType) {
-  const faceClassName = clsx(classes.face, { "held-face": props.held });
-  const pipClassName = clsx(classes.pip, { "held-pip": props.held });
+  const faceClassName = clsx(classes.face, { "bg-gray-400": props.held });
+  const pipClassName = clsx(classes.pip);
 
   return (
     <div className={faceClassName} onClick={props.hold}>
