@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Application } from "~/Application";
+import { DiceProvider } from "./DiceProver";
 
 import "./styles/index.css";
 
@@ -10,6 +11,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Application />
+    <DiceProvider>
+      <Application />
+    </DiceProvider>
   </React.StrictMode>
 );

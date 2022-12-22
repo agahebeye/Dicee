@@ -1,3 +1,5 @@
+import { clsx } from "clsx";
+
 import { SettingsButton } from "~/components/SettingsButton";
 import { Timer } from "~/components/Timer";
 
@@ -23,7 +25,13 @@ export function Appbar(props: AppbarProps) {
       ) : (
         <div className="flex flex-col items-center text-sm">
           <SettingsButton />
-          <div className="mt-10 mb-4 max-w-xs">{appbarText}</div>
+          <div
+            className={clsx("mt-10 mb-4 max-w-xs", {
+              "text-xl italic": props.state.won,
+            })}
+          >
+            {appbarText}
+          </div>
           <Timer time={props.timer.time} attempts={props.state.attempts} />
         </div>
       )}

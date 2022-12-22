@@ -4,7 +4,7 @@ import Confetti from "react-confetti";
 import { useTimer } from "use-timer";
 
 import { Settings } from "./partials/Settings";
-import { Main } from "./partials/Main";
+import { MainApp } from "./partials/MainApp";
 
 import { useDiceReducer } from "./reducer";
 
@@ -12,6 +12,7 @@ export function Application() {
   const duration = 30;
 
   const [state, dispatch] = useDiceReducer();
+  const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
 
   const timer = useTimer({
     timerType: "DECREMENTAL",
@@ -21,20 +22,12 @@ export function Application() {
   });
 
   React.useEffect(() => {
-    const allHeld = state.dice.every((die) => die.held);
-    const allSame = state.dice.every(
-      (die) => die.value === state.dice[0].value
-    );
-    if (allHeld && allSame) {
-      dispatch({ type: "won", payload: true });
-      timer.pause();
-    }
+    checkIfWon();
   }, [state.dice]);
 
   return (
     <div className="h-screen flex justify-center items-center">
-      {/* <Settings /> */}
-      <Main state={state} timer={timer} dispatch={dispatch} />
+      <MainApp timer={timer} />
       {state.won && <Confetti />}
     </div>
   );
@@ -46,6 +39,17 @@ export function Application() {
       timer.start();
     } else {
       dispatch({ type: "failed", payload: true });
+    }
+  }
+
+  function checkIfWon() {
+    const allHeld = state.dice.every((die) => die.held);
+    const allSame = state.dice.every(
+      (die) => die.value === state.dice[0].value
+    );
+    if (allHeld && allSame) {
+      dispatch({ type: "won", payload: true });
+      timer.pause();
     }
   }
 }
