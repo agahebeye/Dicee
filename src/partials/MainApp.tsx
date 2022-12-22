@@ -17,6 +17,8 @@ export function MainApp(props: MainAppProps) {
 
   if (props.isSettingsOpen) return <></>;
 
+  console.log('main app rendered.')
+
   return (
     <div className="">
       <Appbar

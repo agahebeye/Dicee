@@ -8,17 +8,30 @@ import { MainApp } from "./partials/MainApp";
 import { useDice } from "./DiceProver";
 
 export function Application() {
-  const duration = 30;
-
   const { state, dispatch } = useDice();
   const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
+  const [settings, setSettings] = React.useState({
+    level: 0,
+    duration: 30,
+    attempts: 3,
+  });
 
   const timer = useTimer({
     timerType: "DECREMENTAL",
-    initialTime: duration,
+    initialTime: settings.duration,
     endTime: 0,
     onTimeOver,
   });
+
+  const settingsProps = {
+    close() {
+      setIsSettingsOpen(false);
+    },
+    closed: isSettingsOpen,
+    value: settings,
+    change: setSettings,
+    save: saveSettings,
+  };
 
   React.useEffect(() => {
     checkIfWon();
@@ -26,10 +39,7 @@ export function Application() {
 
   return (
     <div className="h-screen flex justify-center items-center">
-      <AppSettings
-        closeSettings={() => setIsSettingsOpen(false)}
-        closed={isSettingsOpen}
-      />
+      <AppSettings settings={settingsProps} />
 
       <MainApp
         timer={timer}
@@ -61,4 +71,6 @@ export function Application() {
       timer.pause();
     }
   }
+
+  function saveSettings() {}
 }
