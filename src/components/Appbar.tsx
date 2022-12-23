@@ -25,7 +25,7 @@ export function Appbar(props: AppbarProps) {
         </div>
       ) : (
         <div className="flex flex-col items-center text-sm">
-          <SettingsButton onClick={props.openSettings} />
+          {!props.state.won && <SettingsButton onClick={props.openSettings} />}
           <div
             className={clsx("mt-10 mb-4 max-w-xs", {
               "text-xl italic": props.state.won,

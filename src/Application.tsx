@@ -5,6 +5,7 @@ import { AppSettings } from "./partials/AppSettings";
 import { MainApp } from "./partials/MainApp";
 import { useDice } from "./DiceProver";
 import { useCountDown } from "~/hooks/useCountDown";
+import {generateDefaultDice} from '~/reducer'
 
 export function Application() {
   const { state, dispatch } = useDice();
@@ -34,8 +35,6 @@ export function Application() {
     checkIfWon();
   }, [state.dice]);
 
-  // console.log(settings.duration);
-
   return (
     <div className="h-screen flex justify-center items-center">
       <AppSettings settings={settingsProps} />
@@ -52,7 +51,7 @@ export function Application() {
 
   function onTimeOver() {
     if (state.attempts > 1) {
-      dispatch({ type: "attempts/decrement" });
+      dispatch({ type: "attempts/set", payload: state.attempts - 1 });
       counter.reset();
       counter.start();
     } else {
@@ -73,6 +72,9 @@ export function Application() {
 
   function saveSettings() {
     counter.reset();
+
+    dispatch({type: 'attempts/set', payload: settings.attempts})
+    dispatch({type: 'dice/set', payload: generateDefaultDice(settings.level)})
 
     setIsSettingsOpen(false);
   }

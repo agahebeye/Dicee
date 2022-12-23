@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const initialState = {
     failed: false,
     won: false,
@@ -8,14 +7,16 @@ const initialState = {
     dice: generateDefaultDice()
 }
 
+export type State = typeof initialState;
+
 export type Action =
     | { type: 'failed', payload: boolean }
     | { type: 'won', payload: boolean }
-    | { type: 'attempts/decrement', payload?: number }
+    | { type: 'attempts/set', payload: number }
     | { type: 'dice/roll', payload?: undefined }
     | { type: 'dice/hold', payload: string }
+    | { type: 'dice/set', payload: State['dice'] }
 
-export type State = typeof initialState;
 
 export function reducer(state: typeof initialState, action: Action) {
     const { type, payload } = action
@@ -24,25 +25,31 @@ export function reducer(state: typeof initialState, action: Action) {
         case "failed":
             return {
                 ...state,
-                failed: action.payload
+                failed: payload
             }
 
         case "won":
             return {
                 ...state,
-                won: action.payload
+                won: payload
             }
 
-        case "attempts/decrement": {
+        case "attempts/set": {
             return {
                 ...state,
-                attempts: state.attempts - 1
+                attempts: payload
             }
         }
 
+        case "dice/set":
+            return {
+                ...state,
+                dice: payload
+            }
+
         case "dice/roll":
             if (state.won || state.failed) {
-                return initialState
+                return initialState // resetting
             }
 
             return {
@@ -66,8 +73,8 @@ export function useDiceReducer() {
     return React.useReducer(reducer, initialState)
 }
 
-function generateDefaultDice() {
-    return Array.from({ length: 10 }, () => ({
+export function generateDefaultDice(length = 10) {
+    return Array.from({ length }, () => ({
         key: Math.random().toString().substring(2, 9),
         value: Math.ceil(Math.random() * 6),
         held: false

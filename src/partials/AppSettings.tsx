@@ -12,7 +12,7 @@ type AppSettingsProps = {
 
 export function AppSettings(props: AppSettingsProps) {
   if (!props.settings.closed) return <></>;
-  console.log("rendered");
+
   return (
     <form
       onSubmit={submit}
@@ -52,9 +52,9 @@ export function AppSettings(props: AppSettingsProps) {
             value={props.settings.value.level}
             onChange={handleChange}
           >
-            <option value="0">Beginner</option>
-            <option value="1">Intermediate</option>
-            <option value="2">Advanced</option>
+            <option value={10}>Beginner</option>
+            <option value={20}>Intermediate</option>
+            <option value={30}>Advanced</option>
           </select>
         </div>
 

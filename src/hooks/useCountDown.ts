@@ -1,4 +1,3 @@
-import { count } from "console";
 import React from "react";
 
 export type Status = 'RUNNING' | 'PAUSED' | 'STOPPED';
@@ -27,15 +26,12 @@ export function useCountDown({
     initialStatus = 'STOPPED',
     initialTime = 0,
     onTimeOver,
-    onTimeUpdate,
-}: Partial<Config> = {}): ReturnValue {
+}: Partial<Config>): ReturnValue {
     const interval = 1000; // 1s
     const [counter, setCounter] = React.useState({
         status: initialStatus,
         time: initialTime
     });
-
-    console.log(counter.time, initialTime)
 
     const pause = () => {
         setCounter(counter => ({ ...counter, status: 'PAUSED' }))
