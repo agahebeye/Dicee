@@ -10,8 +10,15 @@ type DiceProps = {
 };
 
 export function Dice(props: DiceProps) {
+  const length = props.elements.length;
+
   return (
-    <div className={clsx(classes.dice, "mt-6")}>
+    <div
+      className={clsx(classes.dice, "grid grid-cols-5 mt-6", {
+        "grid-cols-7": length === 21,
+        "grid-cols-6": length === 30,
+      })}
+    >
       {props.elements.map((die) => (
         <Die
           hold={() => props.hold(die.key)}
