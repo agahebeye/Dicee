@@ -10,7 +10,6 @@ type DiceProps = {
 };
 
 export function Dice(props: DiceProps) {
-  console.log("dice rendered");
   return (
     <div className={clsx(classes.dice, "mt-6")}>
       {props.elements.map((die) => (

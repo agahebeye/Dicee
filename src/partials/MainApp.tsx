@@ -4,12 +4,12 @@ import { RollButton } from "~/components/RollButton";
 
 import { useDice } from "~/DiceProver";
 
-import { ReturnValue } from "use-timer/lib/types";
+import { ReturnValue } from "~/hooks/useCountDown";
 
 type MainAppProps = {
   isSettingsOpen: boolean;
   openSettings: () => void;
-  timer: ReturnValue;
+  counter: ReturnValue;
 };
 
 export function MainApp(props: MainAppProps) {
@@ -17,13 +17,11 @@ export function MainApp(props: MainAppProps) {
 
   if (props.isSettingsOpen) return <></>;
 
-  console.log('main app rendered.')
-
   return (
     <div className="">
       <Appbar
         state={state}
-        timer={props.timer}
+        counter={props.counter}
         openSettings={props.openSettings}
       />
       <Dice elements={state.dice} hold={holdDie} />
@@ -33,16 +31,14 @@ export function MainApp(props: MainAppProps) {
 
   function rollDice() {
     if (state.won || state.failed) {
-      props.timer.reset();
+      props.counter.reset();
     }
 
     dispatch({ type: "dice/roll" });
   }
 
   function holdDie(key: string) {
-    if (props.timer.status === "STOPPED") {
-      props.timer.start();
-    }
+    props.counter.start();
 
     dispatch({ type: "dice/hold", payload: key });
   }

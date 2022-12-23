@@ -1,9 +1,9 @@
-type TimerProps = {
+type CounterProps = {
   time: number;
   attempts: number;
 };
 
-export function Timer(props: TimerProps) {
+export function Counter(props: CounterProps) {
   const mins = Math.floor((props.time % 3600) / 60);
   const seconds = Math.floor(props.time % 60);
   const time = `${mins.toString().padStart(2, "0")}:${seconds

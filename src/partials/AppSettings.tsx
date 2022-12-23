@@ -90,7 +90,10 @@ export function AppSettings(props: AppSettingsProps) {
         </div>
       </fieldset>
 
-      <button className="bg-red-500 text-white mt-8 tracking-widest uppercase text-xs font-semibold px-10 py-3 rounded-sm table m-auto">
+      <button
+        onClick={props.settings.save}
+        className="bg-red-500 text-white mt-8 tracking-widest uppercase text-xs font-semibold px-10 py-3 rounded-sm table m-auto"
+      >
         save
       </button>
     </form>

@@ -1,11 +1,10 @@
 import React, { useReducer } from "react";
 import Confetti from "react-confetti";
 
-import { useTimer } from "use-timer";
-
 import { AppSettings } from "./partials/AppSettings";
 import { MainApp } from "./partials/MainApp";
 import { useDice } from "./DiceProver";
+import { useCountDown } from "~/hooks/useCountDown";
 
 export function Application() {
   const { state, dispatch } = useDice();
@@ -16,10 +15,8 @@ export function Application() {
     attempts: 3,
   });
 
-  const timer = useTimer({
-    timerType: "DECREMENTAL",
+  const counter = useCountDown({
     initialTime: settings.duration,
-    endTime: 0,
     onTimeOver,
   });
 
@@ -37,12 +34,14 @@ export function Application() {
     checkIfWon();
   }, [state.dice]);
 
+  // console.log(settings.duration);
+
   return (
     <div className="h-screen flex justify-center items-center">
       <AppSettings settings={settingsProps} />
 
       <MainApp
-        timer={timer}
+        counter={counter}
         openSettings={() => setIsSettingsOpen(true)}
         isSettingsOpen={isSettingsOpen}
       />
@@ -54,8 +53,8 @@ export function Application() {
   function onTimeOver() {
     if (state.attempts > 1) {
       dispatch({ type: "attempts/decrement" });
-      timer.reset();
-      timer.start();
+      counter.reset();
+      counter.start();
     } else {
       dispatch({ type: "failed", payload: true });
     }
@@ -68,9 +67,13 @@ export function Application() {
     );
     if (allHeld && allSame) {
       dispatch({ type: "won", payload: true });
-      timer.pause();
+      counter.pause();
     }
   }
 
-  function saveSettings() {}
+  function saveSettings() {
+    counter.reset();
+
+    setIsSettingsOpen(false);
+  }
 }
