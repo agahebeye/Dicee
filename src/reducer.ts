@@ -1,4 +1,5 @@
 import React from "react";
+import { colors, DieColor } from "./data";
 
 const initialState = {
     failed: false,
@@ -73,18 +74,21 @@ export function useDiceReducer() {
     return React.useReducer(reducer, initialState)
 }
 
-export function generateDefaultDice(length = 10) {
-    return Array.from({ length }, () => ({
-        key: Math.random().toString().substring(2, 9),
-        value: Math.ceil(Math.random() * 6),
-        held: false
-    }))
+export function generateDefaultDice(length = 10, colored = false) {
+    return Array.from({ length }, () => generateNewDie(
+        colored ? colors[Math.floor(Math.random() * 6)] : undefined
+    ))
 }
-
-function generateNewDie() {
+// ({
+//         key: Math.random().toString().substring(2, 9),
+//         value: Math.ceil(Math.random() * 6),
+//         held: false
+//     })
+function generateNewDie(colors: DieColor | undefined = undefined) {
     return {
         key: Math.random().toString().substring(2, 9),
         value: Math.ceil(Math.random() * 6),
-        held: false
+        held: false,
+        colors
     }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Application } from "~/Application";
-import { DiceProvider } from "./DiceProver";
+import { DiceProvider } from "./context/DiceProver";
 
 import "./styles/index.css";
 

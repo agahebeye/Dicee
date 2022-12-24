@@ -3,7 +3,7 @@ import Confetti from "react-confetti";
 
 import { AppSettings } from "./partials/AppSettings";
 import { MainApp } from "./partials/MainApp";
-import { useDice } from "./DiceProver";
+import { useDice } from "./context/DiceProver";
 import { useCountDown } from "~/hooks/useCountDown";
 import {generateDefaultDice} from '~/reducer'
 

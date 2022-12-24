@@ -2,7 +2,7 @@ import { Appbar } from "~/components/Appbar";
 import { Dice } from "~/components/Dice";
 import { RollButton } from "~/components/RollButton";
 
-import { useDice } from "~/DiceProver";
+import { useDice } from "~/context/DiceProver";
 
 import { ReturnValue } from "~/hooks/useCountDown";
 

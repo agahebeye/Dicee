@@ -1,18 +1,13 @@
 import React from "react";
-import { useDiceReducer } from "./reducer";
-import type { Action } from "./reducer";
+import { useDiceReducer } from "../reducer";
+import type { State, Action } from "../reducer";
 
 type DiceProviderProps = {
   children: React.ReactNode;
 };
 
 export type DiceContextType = {
-  state: {
-    failed: boolean;
-    won: boolean;
-    attempts: number;
-    dice: { key: string; value: number; held: boolean }[];
-  };
+  state: State;
   dispatch: React.Dispatch<Action>;
 };
 
