@@ -5,7 +5,7 @@
     "e g f"
     "d . b";
 
-  @apply flex-auto m-4 p-2 w-11 h-11 rounded-md bg-gray-200 border;
+  @apply flex-auto m-4 p-2 w-11 h-11 rounded-md;
 }
 
 .pip {

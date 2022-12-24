@@ -1,22 +1,22 @@
 export const colors = [
     {
-        default: 'slate-300',
-        held: 'slate-400'
+        default: 'bg-slate-300',
+        held: 'bg-slate-500'
     }, {
-        default: 'blue-300',
-        held: 'blue-400'
+        default: 'bg-blue-300',
+        held: 'bg-blue-500'
     }, {
-        default: 'orange-300',
-        held: 'orange-400'
+        default: 'bg-orange-300',
+        held: 'bg-orange-500'
     }, {
-        default: 'amber-200',
-        held: 'amber-400'
+        default: 'bg-amber-200',
+        held: 'bg-amber-500'
     }, {
-        default: 'lime-300',
-        held: 'lime-400'
+        default: 'bg-lime-300',
+        held: 'bg-lime-500'
     }, {
-        default: 'Emerald-300',
-        held: 'Emerald-400'
+        default: 'bg-emerald-300',
+        held: 'bg-emerald-500'
     },
 ]
 

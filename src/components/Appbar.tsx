@@ -15,7 +15,7 @@ type AppbarProps = {
 export function Appbar(props: AppbarProps) {
   const appbarText = props.state.won
     ? "Congratulations!!!"
-    : "Roll dice till they all become the same. Note the counter will start counting as soon as you hold a first die.";
+    : "Roll the dice till they all become the same. Note the counter will start counting as soon as you hold a first die.";
 
   return (
     <>

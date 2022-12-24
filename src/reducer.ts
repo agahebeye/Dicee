@@ -55,7 +55,7 @@ export function reducer(state: typeof initialState, action: Action) {
 
             return {
                 ...state,
-                dice: state.dice.map(die => (die.held ? die : generateNewDie()))
+                dice: state.dice.map(die => (die.held ? die : generateNewDie(die.colors)))
             }
 
         case "dice/hold": {
@@ -75,16 +75,19 @@ export function useDiceReducer() {
 }
 
 export function generateDefaultDice(length = 10, colored = false) {
-    return Array.from({ length }, () => generateNewDie(
-        colored ? colors[Math.floor(Math.random() * 6)] : undefined
+    const dice = Array.from({ length }, () => generateNewDie(
+        colored ? colors[Math.floor(Math.random() * 6)] : {
+            default: 'bg-gray-200',
+            held: 'bg-gray-400'
+        }
     ))
+
+    console.log(dice)
+
+    return dice
 }
-// ({
-//         key: Math.random().toString().substring(2, 9),
-//         value: Math.ceil(Math.random() * 6),
-//         held: false
-//     })
-function generateNewDie(colors: DieColor | undefined = undefined) {
+
+function generateNewDie(colors: DieColor) {
     return {
         key: Math.random().toString().substring(2, 9),
         value: Math.ceil(Math.random() * 6),

@@ -5,13 +5,13 @@ import { AppSettings } from "./partials/AppSettings";
 import { MainApp } from "./partials/MainApp";
 import { useDice } from "./context/DiceProver";
 import { useCountDown } from "~/hooks/useCountDown";
-import {generateDefaultDice} from '~/reducer'
+import { generateDefaultDice } from "~/reducer";
 
 export function Application() {
   const { state, dispatch } = useDice();
   const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
   const [settings, setSettings] = React.useState({
-    level: 0,
+    level: 10,
     duration: 30,
     attempts: 3,
   });
@@ -73,8 +73,11 @@ export function Application() {
   function saveSettings() {
     counter.reset();
 
-    dispatch({type: 'attempts/set', payload: settings.attempts})
-    dispatch({type: 'dice/set', payload: generateDefaultDice(settings.level)})
+    dispatch({ type: "attempts/set", payload: settings.attempts });
+    dispatch({
+      type: "dice/set",
+      payload: generateDefaultDice(settings.level, settings.level == 28), // will be colored in advanced level
+    });
 
     setIsSettingsOpen(false);
   }

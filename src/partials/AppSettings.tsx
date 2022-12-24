@@ -54,7 +54,7 @@ export function AppSettings(props: AppSettingsProps) {
           >
             <option value={10}>Beginner</option>
             <option value={21}>Intermediate</option>
-            <option value={30}>Advanced</option>
+            <option value={28}>Advanced</option>
           </select>
         </div>
 
