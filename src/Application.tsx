@@ -61,9 +61,10 @@ export function Application() {
 
   function checkIfWon() {
     const allHeld = state.dice.every((die) => die.held);
-    const allSame = state.dice.every(
-      (die) => die.value === state.dice[0].value
-    );
+    const allSame = state.dice.every((die) => {
+      const firstDie = state.dice[0];
+      return die.value === firstDie.value && Object.is(die.colors, firstDie);
+    });
     if (allHeld && allSame) {
       dispatch({ type: "won", payload: true });
       counter.pause();
