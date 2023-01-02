@@ -1,4 +1,4 @@
-# Dicey 🎲 
+# Dicee 🎲 
 
 A fun 🤗 and engaging dice game with challenges that can entertain you and steal your time.
 
