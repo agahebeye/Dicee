@@ -1,4 +1,5 @@
 # Dicee 🎲 
+[dicee-screencast.webm](https://user-images.githubusercontent.com/24321974/210255331-09a22613-8d62-4378-93e3-ef7c16e6bfbf.webm)
 
 A fun 🤗 and engaging dice game with challenges that can entertain you and steal your time.
 
