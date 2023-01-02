@@ -1,4 +1,7 @@
 # Dicee 🎲 
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 [dicee-screencast.webm](https://user-images.githubusercontent.com/24321974/210255331-09a22613-8d62-4378-93e3-ef7c16e6bfbf.webm)
 
 A fun 🤗 and engaging dice game with challenges that can entertain you and steal your time.
@@ -19,4 +22,10 @@ Some of notable features of Dicey game are:
 
 - etc. 
 
-If you want to enjoy this game, feel free to clone and play it. 
+If you want to enjoy this game, feel free to clone and play it.
+
+```
+git clone https://github.com/agahebeye/Dicee.git
+pnpm install
+pnpm dev --port 3000
+```
