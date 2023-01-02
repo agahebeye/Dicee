@@ -10,7 +10,7 @@ It's customizable game which can allow you to apply settings to your own willing
 
 The advanced level is difficult as hell and __I dare you to play to taste what it really means__
 
-Some of notable features of Dicey game are:
+Some of notable features of Dicee game are:
 
 🛠️ Customization
 
