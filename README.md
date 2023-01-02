@@ -17,3 +17,5 @@ Some of notable features of Dicey game are:
 ⚖️ Levels
 
 - etc. 
+
+If you want to enjoy this game, feel free to clone and play it. 
